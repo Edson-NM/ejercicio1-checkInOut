@@ -1,17 +1,19 @@
 const express = require('express');
+const registrationsRouter = express.Router();
 
+// Controllers
+const {
+	getAllRecords,
+	createNewCheckIn,
+	getCheckById,
+	updateRecord,
+	deleteRecord,
+} = require('../controllers/registrations.controllers');
 
-const registrationsRouter = express.Router()
+registrationsRouter.get('/', getAllRecords);
+registrationsRouter.get('/:id', getCheckById);
+registrationsRouter.post('/', createNewCheckIn);
+registrationsRouter.patch('/:id', updateRecord);
+registrationsRouter.delete('/:id', deleteRecord);
 
-
-
-registrationsRouter.get('/',)
-registrationsRouter.get('/:id',)
-registrationsRouter.post('/',)
-registrationsRouter.patch('/:id',)
-registrationsRouter.delete('/:id',)
-
-
-
-module.exports = { registrationsRouter }
-
+module.exports = { registrationsRouter };
